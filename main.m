@@ -59,7 +59,7 @@ tic;
 toc;
 
 %%%% Comparing profiles
-[nt,nx] = size(u0);
+[nt,~] = size(u0);
 load('data/core','XX','YYa','YYd')
 
 %%
@@ -108,7 +108,7 @@ tic;
 toc;
 
 %%%% Comparing profiles
-[nt,nx] = size(u0);
+[nt,~] = size(u0);
 load('data/palisade','XX','YY')
 
 %%
@@ -155,7 +155,7 @@ tic;
 toc;
 
 %%%% Comparing profiles
-[nt,nx] = size(u0);
+[nt,~] = size(u0);
 load('data/double_palisade','XX','YY')
 
 %% 

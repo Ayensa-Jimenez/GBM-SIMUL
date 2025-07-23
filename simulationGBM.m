@@ -1,17 +1,39 @@
 function [xx,u0,u1,u2] = simulationGBM(param,experiment)
 
+%%%%%%%%%%% function [xx,u0,u1,u2] = simulationGBM(param,experiment) %%%%%%
+%
+%       Function that simulates GBM progression using the model in
+%       Ayensa-Jimenez et al. (2020) for a given value of the parameters
+%       and a specific experimental setup.
+%           
+%       INPUT:
+%           - param: structure with the model parameters (see
+%           Ayensa-Jimenez et al. (2020).
+%           - experiment: string with the experimental configuration:
+%               * 'nc': necrotic core.
+%               * '1p': pseudopalisade.
+%               * '2p': double pseudopalisade.
+%
+%       OUTPUT:
+%           -xx: mesh (vector).
+%           -u0: oxigen field (matrix with nt rows and nx columns).
+%           -u1: live cell field (matrix with nt rows and nx columns).
+%           -u2: dead cell field (matrix with nt rows and nx columns).
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%% Model parameters
-Dn = param.Dn; %6.6e-10; %cm2/s
-csat = param.csat; %5e7; % cell/mL
-chi = param.chi; %cm2/mmHg/s
-Tg = param.Tg;
-Td = param.Td; %1.7e5; %s
-DO2 = param.DO2; % 1e-5 %cm2/s
-alpha = param.alpha; %1e-9 %mmHg mL/ cell/s
-O2_T  = param.O2_T; %2.5 %mmHg
-O2_H  = param.O2_H; %7 %mmHg
-O2_A = param.O2_A; % 1.6; %mmHg
-dO2_A = param.dO2_A; % 0.1; % mmHg
+Dn = param.Dn;  % cm2/s
+csat = param.csat;  % cell/mL
+chi = param.chi; % cm2/mmHg/s
+Tg = param.Tg; % s
+Td = param.Td;  % s
+DO2 = param.DO2; % cm2/s
+alpha = param.alpha; % mmHg mL/ cell/s
+O2_T  = param.O2_T; % mmHg
+O2_H  = param.O2_H; % mmHg
+O2_A = param.O2_A; % mmHg
+dO2_A = param.dO2_A; % mmHg
 
 %%%% Scenario considered
 switch experiment
