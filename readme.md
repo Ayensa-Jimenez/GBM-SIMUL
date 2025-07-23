@@ -1,4 +1,4 @@
-# GGBM-SIMUL
+# GBM-SIMUL
 Basic computational framework for recreating glioblastoma progression in one dimension within microfluidic devices
 
 This repository contains the main scripts for the reproduction of the results presented in the paper [Ayensa-Jimenez et al. (2020)](https://www.nature.com/articles/s41598-020-78215-3).
